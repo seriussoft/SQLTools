@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nSql", "nSql\nSql.csproj", "{DB1EFEA4-7986-4C51-B778-FBC2FFB195BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{1428D730-1760-4642-89DF-3AD2EC1F4983}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB1EFEA4-7986-4C51-B778-FBC2FFB195BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1EFEA4-7986-4C51-B778-FBC2FFB195BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1EFEA4-7986-4C51-B778-FBC2FFB195BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1EFEA4-7986-4C51-B778-FBC2FFB195BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1428D730-1760-4642-89DF-3AD2EC1F4983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1428D730-1760-4642-89DF-3AD2EC1F4983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1428D730-1760-4642-89DF-3AD2EC1F4983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1428D730-1760-4642-89DF-3AD2EC1F4983}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
