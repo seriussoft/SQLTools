@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SqlTools</name>
+    </assembly>
+    <members>
+        <member name="T:SqlTools.MySqlClass">
+            <summary>
+            requires that mysql-connector-net-5.0.8.1 is installed and will not function otherwise...please download that from www.localNetLive.com or redownload the latest version of SqlTools (all necessary files come with it)
+            </summary>
+            <type>class</type>
+        </member>
+        <member name="F:SqlTools.MySqlClass.errors">
+            <type>List&lt;string&gt;</type>
+        </member>
+        <member name="F:SqlTools.MySqlClass.queries">
+            <type>List&lt;string&gt;</type>
+        </member>
+        <member name="M:SqlTools.MySqlClass.#ctor">
+            <summary>
+            Empty constructor. Sets current conns to 0. instantiates list&lt;string&gt; errors
+            </summary>
+        </member>
+        <member name="M:SqlTools.MySqlClass.#ctor(System.String)">
+            <summary>
+            overloaded class initiator...for connecting at same step as initiation of class.
+            1 parameter(string).
+            exa. new MySqlClass("SERVER=%server%;UID=%userId%;PASSWORD=%pass%DATABASE=%db%;");
+            </summary>
+            <param name="connection" type="string"></param>
+        </member>
+        <member name="M:SqlTools.MySqlClass.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            overloaded class initiator for initialzing connection
+            and class in one go. parameters(strings) server,userId,pass,db
+            </summary>
+            <param name="server">(string)</param>
+            <param name="userId">(string)</param>
+            <param name="pass">(string)</param>
+            <param name="db">(string)</param>
+        </member>
+        <member name="M:SqlTools.MySqlClass.makeCopyOf(SqlTools.MySqlClass)">
+            <summary>
+            overloaded class initiator...for copying connection
+            to a new class so that more than one query can be
+            made with same connection
+            </summary>
+            <param name="toCopy">(MySqlClass) MySqlClassToCopy</param>
+            <returns>(MySqlClass)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.getConn">
+            <summary>
+            gets the connection string
+            </summary>
+            <returns>(string) connString</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.setConn(System.String,System.String,System.String,System.String)">
+            <summary>
+            connects to db with supplied parameters(strings) server,userId,pass,dbName
+            </summary>
+            <param name="server">(string)</param>
+            <param name="userId">(string)</param>
+            <param name="pass">(string)</param>
+            <param name="db">(string)</param>
+        </member>
+        <member name="M:SqlTools.MySqlClass.setConn(System.String)">
+            <summary>
+            connects to db with supplied connection string in format
+            "SERVER=%server%;UID=%userId%;PASSWORD=%pass%;DATABASE=%dbName%;"
+            </summary>
+            <param name="connection">(string)</param>
+        </member>
+        <member name="M:SqlTools.MySqlClass.isConnected">
+            <summary>
+            returns true/false if connected
+            </summary>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.ping">
+            <summary>
+            sends ping request to server. returns bool
+            </summary>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.disconn">
+            <summary>
+            disconnects if connected
+            </summary>
+        </member>
+        <member name="M:SqlTools.MySqlClass.query(System.String)">
+            <summary>
+            issues a query. returns true/false for success of call
+            </summary>
+            <param name="toQuery">(string)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.next">
+            <summary>
+            sets reader to next resultSet, returning true/false on success
+            </summary>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.getVar(System.Int32)">
+            <summary>
+            returns value @ column(x) of current row or resultSet
+            </summary>
+            <param name="column">(int)</param>
+            <returns>(SqlDataClass)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.getVar(System.Int32,System.Object@)">
+            <summary>
+            gets value @ column(x) of current row or resultSet and stores it to
+            the referenced object
+            </summary>
+            <param name="column">(int)</param>
+            <param name="toStore">(ref object)</param>
+        </member>
+        <member name="M:SqlTools.MySqlClass.getVar(System.String)">
+            <summary>
+            gets value at supplied column key of current row or resultSet and returns it
+             as a SqlDataClass
+            </summary>
+            <param name="column">(string)</param>
+            <returns>(SqlDataClass)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.getVar(System.String,System.Object@)">
+            <summary>
+            gets variable at supplied column key, at the current row and stores it to
+            the referenced object
+            </summary>
+            <param name="column">(string)</param>
+            <param name="toStore">(ref object)</param>
+        </member>
+        <member name="M:SqlTools.MySqlClass.getColumns">
+            <summary>
+            gets number of columns at current rowSet
+            </summary>
+            <returns>(int)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.getRows">
+            <summary>
+            gets the number of rows in the resultSet
+            </summary>
+            <returns>(int)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.numQueries">
+            <summary>
+            gets the number of queries in list
+            </summary>
+            <returns>(static int)</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.setRow(System.Int32)">
+            <summary>
+            setRow to desired row number if possible, returns false if impossible
+            </summary>
+            <param name="rowNumber">(int)</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.parseType(System.String)">
+            <summary>
+            returns dType.(string/bool/int/double) of value
+            </summary>
+            <param name="sType">(string)</param>
+            <returns>dType</returns>
+        </member>
+        <member name="M:SqlTools.MySqlClass.varIs(System.Int32)">
+            <summary>
+            puts the type and value into a string
+            </summary>
+            <param name="column">(int)</param>
+            <visibility>protected</visibility>
+            <returns>(string)</returns>
+        </member>
+        <member name="T:SqlTools.dType">
+            <summary>
+            </summary>
+            <type>enum</type>
+            <value>String</value>
+            <value>Integer</value>
+            <value>Bool</value>
+            <value>Double</value>
+        </member>
+        <member name="F:SqlTools.SqlDataClass.errors">
+            <summary>
+            </summary>
+            <type>readonly List&lt;string&gt;</type>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.#ctor">
+            <summary>
+            empty constructor
+            </summary>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.#ctor(System.String,SqlTools.dType)">
+            <summary>
+            overloaded constructor that takes in string and type all at once
+            </summary>
+            <param name="sData">(string)</param>
+            <param name="sType">(dType)</param>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.#ctor(System.String,System.String)">
+            <summary>
+            overloaded constructor that takes in string,string
+            </summary>
+            <param name="sDataI">(string)</param>
+            <param name="sTypeI">(string)</param>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.store(System.String,SqlTools.dType)">
+            <summary>
+            stores the data and type to this class
+            </summary>
+            <param name="sData">(string)</param>
+            <param name="sType">(dType)</param>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.store(System.String,System.String)">
+            <summary>
+            stores the data and type to this class (converts string sType to dType)
+            </summary>
+            <param name="sData">(string)</param>
+            <param name="sType">(string)</param>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.getType">
+            <summary>
+            returns the dataType of the stored data
+            </summary>
+            <returns>(dType)</returns>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.get">
+            <summary>
+            returns the value stored in data in the same format as it was stored
+            in the database.
+            </summary>
+            <returns>(object)</returns>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.putIn(System.String@)">
+            <summary>
+            putIn(ref string)
+            </summary>
+            <param name="cData">(ref string)</param>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.putIn(System.Int32@)">
+            <summary>
+            putIn(ref int) returns true/false on success
+            </summary>
+            <param name="cData">(ref int)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.putIn(System.Double@)">
+            <summary>
+            putIn(ref double) returns true/false on success
+            </summary>
+            <param name="cData">(ref double)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.putIn(System.Boolean@)">
+            <summary>
+            putIn(ref bool) returns true/false on success
+            </summary>
+            <param name="cData">(ref bool)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.putIn(System.Object@)">
+            <summary>
+            putIn(ref object) returns true/false on success
+            </summary>
+            <param name="cData">(ref object)</param>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.getString">
+            <summary>
+            returns data as a string no matter what the data type is
+             for people who wish to not make a temp SqlDataClass for returns
+             from mySqlClass
+            </summary>
+            <returns>(string)</returns>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.getInt">
+            <summary>
+            returns data as an int no matter what the data type is
+             for people who wish to not make a temp SqlDataClass for returns
+             from mySqlClass
+            </summary>
+            <returns>(int)</returns>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.getDouble">
+            <summary>
+            returns data as a double no matter what the data type is
+             for people who wish to not make a temp SqlDataClass for returns
+             from mySqlClass
+            </summary>
+            <returns>(double)</returns>
+        </member>
+        <member name="M:SqlTools.SqlDataClass.getBool">
+            <summary>
+            returns data as a bool no matter what the data type is
+             for people who wish to not make a temp SqlDataClass for returns
+             from mySqlClass
+            </summary>
+            <returns>(bool)</returns>
+        </member>
+    </members>
+</doc>

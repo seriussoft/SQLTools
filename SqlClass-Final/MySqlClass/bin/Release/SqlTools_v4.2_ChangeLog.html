@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SqlTools v4.1.4 to v4.2 Change Log</title>
+
+<style type="text/css">
+.comment { color:#009900; font-style:italic;}
+.systemType { color:#0033CC; }
+.header { font-weight:bolder; }
+.subHeader { font-weight:bold; }
+.codeBlock { display:block; width:50%; padding-left:10px; background-color:#FFFF99; }
+.codeBlock .codeBlock { width:90%; }
+.codeString { color:#FF0000; }
+</style>
+
+</head>
+
+<body>
+
+<p class="header">SqlTools v4.1.4 to v4.2 Change Log</p>
+
+<p class="header">ISqlClass:</p>
+<ul>
+  <li> <span class="subHeader">Added</span><br />
+  	<ol>
+    	<li>RowCount{<span class="systemType">get</span>;}</li>
+        <li>ColumnCount{<span class="systemType">get</span>;}</li>
+    </ol>
+  </li>
+  <li><span class="subHeader">Updated</span><br />
+  	<ol>
+    	<li>setConn now returns type <span class="systemType">bool</span> instead of void</li>
+    </ol>
+  </li>
+  <li><span class="subHeader">Deprecated</span>
+  	<ol>
+    	<li>getColumns() <span class="comment">//use ColumnCount property</span></li>
+        <li>getRows() <span class="comment">//use RowCount property</span></li>
+    </ol>
+  </li>
+</ul>
+
+<p class="subHeader">MySqlClass:</p>
+<ul>
+  <li> <span class="subHeader">Added</span><br />
+  	<ol>
+    	<li>RowCount{<span class="systemType">get</span>;}</li>
+        <li>ColumnCount{<span class="systemType">get</span>;}</li>
+    </ol>
+  </li>
+  <li><span class="subHeader">Updated</span><br />
+  	<ol>
+    	<li>setConn(...) now returns bool. It returns false on error, storing error into Errors rather than throwing an exception</li>
+        <li>query(...) now returns false on error, storing error in Errors rather than throwing an exception</li>
+  	    <li>command(...) now returns false on error storing error in Errors rather than throwing an exception</li>
+  	</ol>
+  </li>
+  <li><span class="subHeader">Deprecated</span>
+  	<ol>
+    	<li>getColumns() <span class="comment">//use ColumnCount property</span></li>
+        <li>getRows() <span class="comment">//use RowCount property</span></li>
+    </ol>
+  </li>
+</ul>
+
+<p class="header">MsSqlClass:</p>
+<ul>
+  <li> <span class="subHeader">Added</span><br />
+  	<ol>
+    	<li>RowCount{<span class="systemType">get</span>;}</li>
+        <li>ColumnCount{<span class="systemType">get</span>;}</li>
+        <li>command(<span class="systemType">string</span>)</li>
+  	    <li>getSchema()</li>
+  	    <li>getDataTable() <span class="comment">//to be implemented in v4.2.1</span></li>
+  	    <li>getDataSet() <span class="comment">//to be implemented in v4.2.1</span></li>
+      <li>Rows() as an <span class="systemType">IEnumerable</span>&lt;<span class="systemType">SqlRow</span>&gt;<br />
+  	    Exa. <br />
+        <span class="codeBlock"><span class="systemType">foreach</span>(SqlRow row in sqlObj.Rows())<br />
+      {
+		<span class="codeBlock"><span class="systemType">foreach</span>(<span class="systemType">int</span> x=0; x&lt;row.Count; x++)<br />
+       {<br />
+       <span class="codeBlock">Console.Write(<span class="codeString">&quot;Col[{0}] = &quot;</span>, x, row[x].getString());</span>
+       }       </span>
+      }</span></li>
+  	  <li>free() <span class="comment">//call this when you are done using the query, but still to keep the connection open. this will prevent some possible logic errors in the long run</span></li>
+  	  <li>static <span class="systemType">List</span>&lt;<span class="systemType">string</span>&gt; Errors {<span class="systemType">get</span>;}</li>
+  	  <li>static <span class="systemType">List</span>&lt;<span class="systemType">string</span>&gt; Queries {<span class="systemType">get</span>;}</li>
+  	  <li>static <span class="systemType">List</span>&lt;<span class="systemType">string</span>&gt; QueriesFailed {<span class="systemType">get</span>;}</li>
+  	</ol>
+  </li>
+  <li><span class="subHeader">Updated</span><br />
+  	<ol>
+   	  <li>setConn(...) now returns bool. It returns false on error, storing error into Errors rather than throwing an exception</li>
+        <li>query(...) now returns false on error, storing error in Errors rather than throwing an exception. Also, it now implements RowCount property.</li>
+  	    <li>command(...) now returns false on error storing error in Errors rather than throwing an exception. Also, it now implements RowsEffected property</li>
+  	</ol>
+  </li>
+  <li><span class="subHeader">Deprecated</span>
+  	<ol>
+    	<li>getColumns() <span class="comment">//use ColumnCount property</span></li>
+        <li>getRows() <span class="comment">//use RowCount property</span></li>
+    </ol>
+  </li>
+</ul>
+
+</body>
+</html>

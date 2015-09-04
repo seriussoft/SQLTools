@@ -1,0 +1,55 @@
+8
+
+dir
+37
+svn://71.51.48.240/dudeserius/VisualStudio/Projects/C%23/DLL's/SqlClass/MySqlClass/bin/Debug
+svn://71.51.48.240/dudeserius
+
+
+
+2007-11-07T00:40:27.718750Z
+10
+nvanbkirk
+
+
+svn:special svn:externals svn:needs-lock
+
+SqlTools.pdb
+file
+
+
+
+
+2007-09-21T17:53:30.000000Z
+7c22340631d3361be5469e105ff81bad
+2007-11-07T00:40:27.718750Z
+10
+nvanbkirk
+has-props
+
+MySql.Data.dll
+file
+
+
+
+
+2007-05-16T19:37:32.000000Z
+6f118f01152e67f9da4c18462500acba
+2007-11-07T00:40:27.718750Z
+10
+nvanbkirk
+has-props
+
+SqlTools.dll
+file
+
+
+
+
+2007-09-21T17:53:30.000000Z
+3256b82ee5d739f5f605a4eef50bb4db
+2007-11-07T00:40:27.718750Z
+10
+nvanbkirk
+has-props
+
