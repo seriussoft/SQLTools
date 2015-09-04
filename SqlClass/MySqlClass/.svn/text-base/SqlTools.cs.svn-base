@@ -1,0 +1,26 @@
+/*******************************
+ * SqlTools Namespace v1.0
+ *      nathan vanbuskirk
+ *      july 10, 2007
+ * 
+ * contains MySqlClass && SqlDataClass
+ * also contains an enum dType{String,Integer,Double,Bool}
+ *******************************/
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SqlTools
+{
+    /// <summary>
+    /// </summary>
+    /// <type>enum</type>
+    /// <value>String</value>
+    /// <value>Integer</value>
+    /// <value>Bool</value>
+    /// <value>Double</value>
+    [Flags] public enum dType{String, Integer, Bool, Double}
+
+
+}//end of SqlTools

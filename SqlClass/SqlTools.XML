@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SqlTools</name>
+    </assembly>
+    <members>
+        <member name="T:SqlTools.MySqlClass">
+            <summary>
+            requires that mysql-connector-net-5.0.8.1 is installed and will not function otherwise...please download that from www.localNetLive.com or redownload the latest version of SqlTools (all necessary files come with it)
+            </summary>
+        </member>
+    </members>
+</doc>
