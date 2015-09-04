@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nSql</name>
+    </assembly>
+    <members>
+        <member name="T:nTools.SqlTools.dType">
+            <summary>
+            <value>String</value>
+            /// <value>Integer</value>
+            /// <value>Bool</value>
+            /// <value>Double</value>
+            </summary>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.#ctor(System.String,nTools.SqlTools.dType)">
+            <summary>
+            overloaded cstr that takes in string and type all at once
+            </summary>
+            <param name="sData">(string)</param>
+            <param name="sType">(dType)</param>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.#ctor(System.String,System.String)">
+            <summary>
+            overloaded cstr that takes in string, string
+            </summary>
+            <param name="sDataI">(string)</param>
+            <param name="sTypeI">(string)</param>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.get">
+            <summary>
+            returns value stored in data in the same format as it was stored in db
+            </summary>
+            <returns>(object)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.getBool">
+            <summary>
+            returns data as bool no matter what data type.
+            is for people who wish to not make a temp SqlDataClass for returns
+            </summary>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.getDouble">
+            <summary>
+            returns data as double no matter what data type.
+            is for people who wish to not make a temp SqlDataClass for returns
+            </summary>
+            <returns>(double)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.getInt">
+            <summary>
+            returns data as int no matter what data type.
+            is for people who wish to not make a temp SqlDataClass for returns
+            </summary>
+            <returns>(int)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.getString">
+            <summary>
+            returns data as string no matter what data type.
+            is for people who wish to not make a temp SqlDataClass for returns
+            </summary>
+            <returns>(string)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.getType">
+            <summary>
+            returns the dataType of the stored data
+            </summary>
+            <returns>(dType)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.putIn(System.Boolean@)">
+            <summary>
+            returns true/false on success
+            </summary>
+            <param name="cData">(ref bool)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.putIn(System.Double@)">
+            <summary>
+            returns true/false on success
+            </summary>
+            <param name="cData">(ref double)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.putIn(System.Int32@)">
+            <summary>
+            returns true/false on success
+            </summary>
+            <param name="cData">(ref int)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.putIn(System.Object@)">
+            <summary>
+            returns true/false on success
+            </summary>
+            <param name="cData">(ref object)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.putIn(System.String@)">
+            <summary>
+            returns true/false on success
+            </summary>
+            <param name="cData">(ref string)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.store(System.String,nTools.SqlTools.dType)">
+            <summary>
+            stores the data and type to this class
+            </summary>
+            <param name="sData">(string)</param>
+            <param name="sType">(dType)</param>
+        </member>
+        <member name="M:nTools.SqlTools.SqlDataClass.store(System.String,System.String)">
+            <summary>
+            stores the data and type to this class (converts string sType to dType)
+            </summary>
+            <param name="sData">(string)</param>
+            <param name="sType">(string)</param>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.#ctor">
+            <summary>
+            does not connect to database. run setConn(string) or setConn(string,string,string,string) to conn to the db if you use this Cstr
+            </summary>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.#ctor(System.String)">
+            <summary>
+            connects to the database. throws Exception if incapable of connecting w/ supplied connection string. (check inner exception)
+            </summary>
+            <param name="connection" type="string">exa. "Data Source=$server;User ID=$usrID;Password=$pass;Initial Catalog=$dbName;")</param>
+            <exception cref="!:">mssql exception is in the inner exception</exception>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            connects to the database. throws Exception if incapable of connecting w/ supplied info. (check inner exception)
+            </summary>
+            <param name="server">(string)</param>
+            <param name="userId">(string)</param>
+            <param name="pass">(string)</param>
+            <param name="db">(string)</param>
+            <exception cref="!:">mssql exception is in the inner exception</exception>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.disconn">
+            <summary>
+            if connected, this will disconnect the open mssql connection
+            </summary>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getColumns">
+            <summary>
+            gets number of columns at current rowSet
+            </summary>
+            <returns>(int)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getConn">
+            <summary>
+            gets the connection string
+            </summary>
+            <returns>(string)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getRows">
+            <summary>
+            gets the number of rows in the resultSet
+            </summary>
+            <returns>(int)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getVar(System.Int32)">
+            <summary>
+            returns value @ columnn[x] of current row or result set
+            </summary>
+            <param name="column">(int)</param>
+            <returns>SqlDataClass</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getSchema">
+            <summary>
+            returns the schema table of the resultSet
+            </summary>
+            <returns>(System.Data.DataTable)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getDataSet">
+            <summary>
+            returns the dataSet from the resultSet
+            </summary>
+            <returns>(System.Data.DataSet)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getDataTable">
+            <summary>
+            returns the DataTable from the internal dataSet
+            </summary>
+            <returns>(System.Data.DataTable)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getVar(System.String)">
+            <summary>
+            gets value at supplied column key of current row or resultSet and returns it as a SqlDataClass
+            </summary>
+            <param name="column">(string)</param>
+            <returns>(int)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getVar(System.Int32,System.Object@)">
+            <summary>
+            gets value @ column[x] of current row or resultSet and stores it to the referenced object
+            </summary>
+            <param name="column">(int)</param>
+            <param name="toStore">(ref object)</param>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.getVar(System.String,System.Object@)">
+            <summary>
+            gets value at supplied column key, at current row, and stores it to the referenced object
+            </summary>
+            <param name="column"></param>
+            <param name="toStore"></param>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.isConnected">
+            <summary>
+            gets connection status
+            </summary>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.makeCopyOf(nTools.SqlTools.MsSqlClass)">
+            <summary>
+            returns a copy of the MsSqlClass, and connects the receivee
+            </summary>
+            <param name="toCopy">(MsSqlClass)</param>
+            <returns>(MsSqlClass)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.next">
+            <summary>
+            returns true/false of success of proceeding to next rowSet
+            </summary>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.parseType(System.String)">
+            <summary>
+            returns the equivalent dType enum from the given string sType (returns dType.String if a non-existing type is supplied)
+            </summary>
+            <param name="sType">(string)</param>
+            <returns>(dType)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.query(System.String)">
+            <summary>
+            attempts to execute the supplied query (will throw an exception if it cannot execute it: check inner exception for more info).
+            it returns true on success or false if you are not connected.
+            </summary>
+            <param name="toQuery">(string)</param>
+            <returns>(bool)</returns>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.setConn(System.String)">
+            <summary>
+            <para>will connect to the db based on supplied connection...there are many possble exceptions to be thrown:</para>
+            <para>1) missing server</para>
+            <para>2) missing uid</para>
+            <para>3) missing pass</para>
+            <para>4) missing dbname</para>
+            <para>5) cannot connect...check inner exception</para>
+            </summary>
+            <param name="connection" type="string">exa. "Data Source=$server;User ID=$usrID;Password=$pass;Initial Catalog=$dbName;")</param>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.setConn(System.String,System.String,System.String,System.String)">
+            <summary>
+            <para>will connect to the db based on supplied connection...</para>
+            <para>Exception: cannot connect...check inner exception</para>
+            </summary>
+            <param name="server">(string)</param>
+            <param name="userId">(string)</param>
+            <param name="pass">(string)</param>
+            <param name="db">(string)</param>
+        </member>
+        <member name="M:nTools.SqlTools.MsSqlClass.varIs(System.Int32)">
+            <summary>
+            puts the type of the value in column[x] at the current row or resultSet into a string
+            </summary>
+            <param name="column">(int)</param>
+            <returns>(string)</returns>
+        </member>
+    </members>
+</doc>
